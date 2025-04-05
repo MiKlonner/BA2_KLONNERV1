@@ -23,7 +23,7 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
 
-            <!-- Automatically drop and create database schema on startup -->
+            <!-- Automatically create/update database schema on startup -->
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
         </properties>
     </persistence-unit>
