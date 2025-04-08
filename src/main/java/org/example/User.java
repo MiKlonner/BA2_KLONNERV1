@@ -21,6 +21,8 @@ public class User {
     private String email;
 
 
+
+    private Role role;
     private String password;
 
 
@@ -28,18 +30,20 @@ public class User {
 
     }
 
-    public User(String firstName, String surName, Date dateOfBirth, String email, String password) {
+    public User(String firstName, String surName, Date dateOfBirth, String email, String password, Role role) {
         this.firstName = firstName;
         this.surName = surName;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
-    public User(String firstName, String surName, String email, String password) {
+    public User(String firstName, String surName, String email, String password, Role role) {
         this.firstName = firstName;
         this.surName = surName;this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     @Override
@@ -50,6 +54,7 @@ public class User {
                 ", surName='" + surName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", email='" + email + '\'' +
+                ", role=" + role +
                 ", password='" + password + '\'' +
                 '}';
     }

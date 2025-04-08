@@ -1,6 +1,7 @@
 package org.example.util;
 
 
+import org.example.Role;
 import org.example.User;
 import org.example.UserRepo;
 
@@ -19,7 +20,7 @@ public class DBInitializer {
 
         System.out.println("Initializing database...");
       // TODO: 05.04.2025 add crud operations for future implementations
-        User user = new User("Michael", "Klonner", "mi.klonner@gmail.com", "1234");
+        User user = new User("Michael", "Klonner", "mi.klonner@gmail.com", "1234", Role.USER);
         UserRepo.save(user);
 
 
