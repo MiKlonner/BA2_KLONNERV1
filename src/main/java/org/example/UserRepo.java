@@ -52,7 +52,12 @@ public class UserRepo {
 
 
         }
-        public List<User> getAllOrderedbyID() {
+       /* TODO: remove if not needed
+
+
+            public List<User> getAllOrderedbyID() {
+
+
             EntityManager entityManager = JPA.getEntityManager();
             EntityTransaction transaction = entityManager.getTransaction();
             List<User> UserList = new ArrayList<>();
@@ -63,6 +68,8 @@ public class UserRepo {
 
             return UserList;
         }
+         */
+
 
 
     }

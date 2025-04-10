@@ -20,7 +20,7 @@ public class DBInitializer {
 
         System.out.println("Initializing database...");
       // TODO: 05.04.2025 add crud operations for future implementations
-        User user = new User("Herbert", "Klonner", "mi.klonner@gmail.com", "1234", Role.USER);
+        User user = new User("Herbert", "Klonner", "01.01.2000", "mi.klonner@gmail.com", "1234", "Franz");
         // User user1 = new User("Herbert", "Klonner", "mi.klonner@gmail.com", "1234", Role.USER);
 
         try{

@@ -2,6 +2,8 @@ package org.example;
 
 import jakarta.persistence.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -15,6 +17,53 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    private String firstName;
+    private String surName;
+    private Date dateOfBirth;
+    private String email;
+
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    private String password;
+
+    static private SimpleDateFormat dateFormatter;
+
+
+
+    public User() {
+
+    }
+
+
+    public User (String firstName, String surName, String dateOfBirth, String email, String password, String role) throws RuntimeException {
+        this.dateFormatter = new SimpleDateFormat("dd.MM.yyyy");
+        try {
+            this.dateOfBirth = dateFormatter.parse(dateOfBirth);
+        } catch (ParseException e) {
+            throw new IllegalArgumentException("Bitte geben Siue das Geburtsdatum in folgendem FOrmat an:" + dateOfBirth.toString());
+        }
+        this.firstName = firstName;
+        this.surName = surName;
+        this.email = email;
+        this.password = password;
+
+        try{
+            this.role = (Role.findByName(role));
+        } catch (IllegalArgumentException e){
+            throw new IllegalArgumentException("Bitte geben Sie eine gültige Berechtigungsstufe an");
+        }
+        this.role = (Role.findByName(role));
+        System.out.println("***************************" + Role.findByName(role));
+    }
+
+    public User(String firstName, String surName, String email, String password, Role role) {
+        this.firstName = firstName;
+        this.surName = surName;this.email = email;
+        this.password = password;
+        this.role = role;
+    }
     public Long getId() {
         return id;
     }
@@ -69,37 +118,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    private String firstName;
-    private String surName;
-    private Date dateOfBirth;
-    private String email;
-
-
- @Enumerated(EnumType.STRING)
-    private Role role;
-    private String password;
-
-
-    public User() {
-
-    }
-
-    public User(String firstName, String surName, Date dateOfBirth, String email, String password, Role role) {
-        this.firstName = firstName;
-        this.surName = surName;
-        this.dateOfBirth = dateOfBirth;
-        this.email = email;
-        this.password = password;
-        this.role = Role.valueOf(role.getRole(role));
-    }
-
-    public User(String firstName, String surName, String email, String password, Role role) {
-        this.firstName = firstName;
-        this.surName = surName;this.email = email;
-        this.password = password;
-        this.role = role;
     }
 
     @Override
