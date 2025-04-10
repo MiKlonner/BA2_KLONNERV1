@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 
-@Entity
+@Entity (name= "users")
 @Table(name = "users")
 public class User {
 
@@ -15,13 +15,69 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSurName() {
+        return surName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     private String firstName;
     private String surName;
     private Date dateOfBirth;
     private String email;
 
 
-
+ @Enumerated(EnumType.STRING)
     private Role role;
     private String password;
 
@@ -36,7 +92,7 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.password = password;
-        this.role = role;
+        this.role = Role.valueOf(role.getRole(role));
     }
 
     public User(String firstName, String surName, String email, String password, Role role) {
