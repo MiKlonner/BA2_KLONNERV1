@@ -9,7 +9,7 @@ import jakarta.persistence.Persistence;
         private static final String PERSISTENCE_UNIT_NAME = "h2-persistence-unit";
         private static EntityManagerFactory entityManagerFactory;
 
-        static {
+        static { //constructor?
             try {
                 entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
             } catch (Exception e) {
@@ -24,7 +24,7 @@ import jakarta.persistence.Persistence;
         }
 
 
-        //currently not need cause hibernate mode was switched to "create-drop" instead of "update"
+        //currently not needed because hibernate mode was switched to "create-drop" instead of "update"
         public static void close() {
             if (entityManagerFactory != null && entityManagerFactory.isOpen()) {
                 entityManagerFactory.close();
