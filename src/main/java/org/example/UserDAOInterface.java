@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.File;
 import java.util.List;
 
 
@@ -21,5 +22,5 @@ public interface UserDAOInterface {
      List<User> findAllUsers();
 
 
-     List<String> uploadCSV(String filePath) throws RuntimeException;
+     List<String> uploadCSV(File file) throws RuntimeException;
 }
