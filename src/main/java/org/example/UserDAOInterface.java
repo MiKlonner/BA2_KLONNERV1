@@ -10,10 +10,10 @@ public interface UserDAOInterface {
     boolean save(User user) throws RuntimeException;
 
 
-    User updateUserByID(int id, String attribute, String value) throws RuntimeException;
+    User updateUserByID(long id, String attribute, String value) throws RuntimeException;
 
 
-    User deleteUserbyID(int id);
+    boolean deleteUserbyID(int id);
 
 
     User findUserByID(int id);
